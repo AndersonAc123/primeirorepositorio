@@ -1,3 +1,30 @@
-altere
+#include <stdio.h>
+#include <stdlib.h>
+#include "medicamento.h"
+#include "interface.h"
 
-altere novamente
+void TelaPrincipal(){
+    system("cls");
+    textcolor(YELLOW);
+    textbackground(RED);
+    Borda(1, 1, 70, 23, 1, 0);
+    gotoxy(30, 1); printf("  MYMED  ");
+    gotoxy(29, 15); printf("Versao 1.0");
+}
+
+int main() {
+    char opcoes[][20] = {"AGENDA", "SAIR"};
+    int x[] = {19, 38};
+    int y[] = {7, 7};
+    int tam[] = {10, 10};
+    int option;
+
+    do {
+        TelaPrincipal();
+        option = Menu(opcoes, x, y, tam, 2, 0);
+
+        if (option == 0) {
+            CriarMenu(); // Acessa a agenda de medicamentos
+        }
+    } while (option != 1); // Sair do programa quando "Sair" é selecionado
+}
